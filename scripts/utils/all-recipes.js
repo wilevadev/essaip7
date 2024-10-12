@@ -1,6 +1,6 @@
 import { Recipe } from '../templates/create-card.js'
 
-export function displayAllRecipes(recipes) {
+export function displayAllRecipes (recipes) {
   const container = document.getElementById('recipes-container')
   const recipeCountElement = document.getElementById('recipe-count')
 
@@ -25,7 +25,3 @@ export function displayAllRecipes(recipes) {
     recipeCountElement.textContent = `${recipes.length} recettes`
   }
 }
-
-
-
-

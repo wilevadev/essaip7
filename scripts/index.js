@@ -13,5 +13,3 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error("La variable 'recipes' n'est pas définie ou n'est pas un tableau.")
   }
 })
-
-

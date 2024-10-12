@@ -3,22 +3,22 @@ import { displayAllRecipes } from '../utils/all-recipes.js'
 
 // Initialiser deux variables globales :
 // allRecipes stocke toutes les recettes disponibles
-let allRecipes = [] 
+let allRecipes = []
 // currentFilteredRecipes stocke les recettes filtrées en fonction des critères de recherche ou des tags
 let currentFilteredRecipes = []
 
 // Fonction pour effacer le message d'erreur d'un élément HTML
-function clearError(element) {
+function clearError (element) {
   if (element) element.textContent = '' // Si l'élément existe, vider son contenu texte
 }
 
 // Fonction pour définir et afficher un message d'erreur sur un élément HTML
-function setError(element, errorMessage) {
+function setError (element, errorMessage) {
   if (element) element.textContent = errorMessage // Si l'élément existe, définir son contenu texte avec le message d'erreur
 }
 
 // Fonction de recherche principale qui filtre les recettes en fonction d'une requête
-export function recherchePrincipale(recettes, requete) {
+export function recherchePrincipale (recettes, requete) {
   // Nettoyer et normaliser la requête en supprimant les espaces et en la convertissant en minuscules
   requete = requete.trim().toLowerCase()
 
@@ -31,7 +31,7 @@ export function recherchePrincipale(recettes, requete) {
 }
 
 // Fonction pour filtrer les recettes en fonction des tags sélectionnés
-export function filterRecipesByTags(recipes, selectedTags) {
+export function filterRecipesByTags (recipes, selectedTags) {
   // Filtrer les recettes : vérifier si chaque recette contient tous les tags sélectionnés
   return recipes.filter((recipe) => {
     const { ingredients, ustensils, appliance } = recipe // Extraire les ingrédients, ustensiles, et l'appareil de chaque recette
@@ -52,7 +52,7 @@ export function filterRecipesByTags(recipes, selectedTags) {
 }
 
 // Fonction pour filtrer les recettes en fonction de la recherche principale et des tags
-export function filterRecipes() {
+export function filterRecipes () {
   // Récupérer tous les tags sélectionnés depuis le DOM
   const selectedTags = Array.from(
     document.querySelectorAll('#tags-container .tag')
@@ -92,14 +92,14 @@ export function filterRecipes() {
 }
 
 // Fonction pour créer un message d'absence de résultats lorsqu'aucune recette ne correspond à la recherche
-function createNoResultsMessage(query) {
+function createNoResultsMessage (query) {
   const noResultsMessage = document.createElement('p') // Créer un élément paragraphe (<p>) pour le message
   noResultsMessage.textContent = `Aucune recette ne contient "${query}". Essayez des termes comme "tarte aux pommes", "poisson", etc.` // Définir le texte du message
   return noResultsMessage // Retourner l'élément message
 }
 
 // Fonction pour initialiser l'utilisation des recettes (affichage initial, gestion des événements)
-export function initUseCase(recipes) {
+export function initUseCase (recipes) {
   // Stocker toutes les recettes dans les variables globales
   allRecipes = recipes
   currentFilteredRecipes = recipes
@@ -162,7 +162,7 @@ export function initUseCase(recipes) {
 }
 
 // Fonction pour mettre à jour les options des listes déroulantes en fonction des recettes filtrées
-function updateDropdownOptions(recipes) {
+function updateDropdownOptions (recipes) {
   // Récupérer les éléments des listes déroulantes pour les ingrédients, appareils et ustensiles
   const dropdowns = {
     ingredients: document.querySelector(".dropDown[data-value='ingredients'] .ingredients"),
@@ -200,7 +200,7 @@ function updateDropdownOptions(recipes) {
 }
 
 // Fonction pour mettre à jour le contenu d'une liste déroulante
-function updateDropdown(dropdown, itemsSet) {
+function updateDropdown (dropdown, itemsSet) {
   dropdown.innerHTML = '' // Vider le contenu existant de la liste déroulante
   // Ajouter chaque élément de l'ensemble dans la liste déroulante
   itemsSet.forEach((item) => {
@@ -210,7 +210,7 @@ function updateDropdown(dropdown, itemsSet) {
 }
 
 // Fonction pour créer un élément d'option pour une liste déroulante
-function createDropdownOptionElement(item) {
+function createDropdownOptionElement (item) {
   // Créer un élément <div> pour représenter l'option dans la liste déroulante
   const optionElement = document.createElement('div')
   optionElement.classList.add('option') // Ajouter une classe CSS 'option' pour le style
@@ -228,14 +228,14 @@ function createDropdownOptionElement(item) {
 }
 
 // Fonction pour fermer une liste déroulante en retirant l'attribut 'open' de l'élément <details>
-function closeDropdown(detailsElement) {
+function closeDropdown (detailsElement) {
   if (detailsElement) {
     detailsElement.removeAttribute('open') // Fermer la liste déroulante
   }
 }
 
 // Fonction pour configurer les options des listes déroulantes
-function setupDropdownOptions(dropdown) {
+function setupDropdownOptions (dropdown) {
   // Récupérer toutes les options de la liste déroulante
   const options = dropdown.querySelectorAll('.option')
   // Ajouter un événement de clic à chaque option pour gérer la sélection
@@ -250,12 +250,12 @@ function setupDropdownOptions(dropdown) {
 }
 
 // Fonction pour remplir les listes déroulantes avec les options correspondant aux recettes disponibles
-function populateDropdowns(recipes) {
+function populateDropdowns (recipes) {
   updateDropdownOptions(recipes) // Mettre à jour les options des listes déroulantes en fonction des recettes fournies
 }
 
 // Fonction pour créer un élément de tag pour la recherche avancée
-function createTagElement(value) {
+function createTagElement (value) {
   // Récupérer le conteneur de tags dans le DOM
   const tagsContainer = document.getElementById('tags-container')
   // Vérifier si un tag avec cette valeur existe déjà. Si non, le créer
@@ -284,7 +284,7 @@ function createTagElement(value) {
 }
 
 // Fonction pour créer un bouton de suppression de tag
-function createRemoveButtonElement() {
+function createRemoveButtonElement () {
   // Créer un élément <span> pour représenter le bouton de suppression
   const removeButton = document.createElement('span')
   removeButton.classList.add('remove-tag') // Ajouter une classe CSS 'remove-tag' pour le style
@@ -295,7 +295,7 @@ function createRemoveButtonElement() {
 }
 
 // Fonction pour filtrer les options des listes déroulantes en fonction de la recherche saisie
-function filterDropdownOptions(dropdown, query) {
+function filterDropdownOptions (dropdown, query) {
   // Récupérer toutes les options de la liste déroulante
   const options = dropdown.querySelectorAll('.option')
   // Pour chaque option, vérifier si elle correspond à la requête. Sinon, la masquer
