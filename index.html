@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Les petits plats</title>
+    <link href="dist/styles.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-cover bg-center flex flex-col items-center" style="background-image: url('../assets/banner.jpg'); height: 670px;">
+        <h1 class="self-start pl-16 pt-12">
+            <img src="../assets/icons/logo-complet.svg" alt="texte des bons petits plats">
+        </h1>
+        <h2 class="pt-16 pb-4 font-anton text-customYellow text-[24px] font-normal leading-[66px] text-center sm:pt-44 md:text-[33px] lg:text-[44px] ">
+            CHERCHEZ PARMI PLUS DE 1500 RECETTES <br> DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
+        </h2>
+        <form class="form flex flex-col justify-center relative">
+            <input id="main-search" class="custom-input w-full h-12 md:h-16 p-2" type="search" name="search" placeholder="Rechercher une recette, un ingrédient, ..." >
+            <span id="error-message" class="text-customYellow absolute -bottom-12 sm:-bottom-6 left-0"></span>
+            <button id="main-btn" disabled type="submit">
+                <img src="../assets/icons/loupe.svg" alt="loupe de recherche" class="btnPrincipale">
+            </button>
+        </form>
+    </header>
+    <main class="main bg-slate-200">
+        <div class="container flex flex-col p-5 rounded-lg">
+            <div class="drop flex flex-col lg:flex-row justify-between w-full mb-4">
+                <div class="result-count flex items-center mb-4 lg:mb-0 lg:order-1">
+                    <p id="recipe-count" class="m-0 text-lg font-bold uppercase">150 Recettes</p>
+                </div>
+                <div class="flex gap-16 flex-wrap md:flex-nowrap md:order-0">
+                    <details class="dropDown relative w-48 h-14 z-50" data-value="ingredients">
+                        <summary class="list-none bg-white text-black capitalize p-5 rounded-lg flex justify-between">
+                            <span class="value">Ingrédients</span>
+                            <img src="../assets/icons/chevrondown.svg" alt="">
+                        </summary>
+                        <div class="options absolute text-black overflow-hidden top-0 left-0 rounded-lg w-full bg-white">
+                            <div class="title-section p-5 flex justify-between capitalize h-16 items-center">
+                                Ingrédients
+                                <img src="../assets/icons/chevronup.svg" alt="" id="masque1">
+                            </div>
+                            <div class="content-section px-6">
+                                <div class="recherche flex w-full relative">
+                                    <input class="option-search w-full h-9 pr-6 border border-gray-300 rounded-lg box-border" type="search" name="search" placeholder="">
+                                    <span class="button_search absolute right-2 transform -translate-y-1/2 border-none bg-none p-0">
+                                        <img src="../assets/icons/loupei.svg" alt="Rechercher" class="w-3.5 h-3.5">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ingredients px-6 py-3 cursor-pointer"></div>
+                        </div>
+                    </details>
+
+                    <details class="dropDown relative w-48 h-14 z-30" data-value="appliances">
+                        <summary class="list-none bg-white text-black capitalize p-5 rounded-lg flex justify-between">
+                            <span class="value">Appareils</span>
+                            <img src="../assets/icons/chevrondown.svg" alt="">
+                        </summary>
+                        <div class="options absolute text-black overflow-hidden top-0 left-0 rounded-lg w-full bg-white">
+                            <div class="title-section p-5 flex justify-between capitalize h-16 items-center">
+                                Appareils
+                                <img src="../assets/icons/chevronup.svg" alt="" id="masque2">
+                            </div>
+                            <div class="content-section px-6">
+                                <div class="recherche flex w-full relative">
+                                    <input class="option-search w-full h-9 pr-6 border border-gray-300 rounded-lg box-border" type="search" name="search" placeholder="">
+                                    <span class="button_search absolute right-2 transform -translate-y-1/2 border-none bg-none p-0">
+                                        <img src="../assets/icons/loupei.svg" alt="Rechercher" class="w-3.5 h-3.5">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="appliances px-6 py-3 cursor-pointer"></div>
+                        </div>
+                    </details>
+
+                    <details class="dropDown relative w-48 h-14 z-20" data-value="ustensils">
+                        <summary class="list-none bg-white text-black capitalize p-5 rounded-lg flex justify-between">
+                            <span class="value">Ustensiles</span>
+                            <img src="../assets/icons/chevrondown.svg" alt="">
+                        </summary>
+                        <div class="options absolute text-black overflow-hidden top-0 left-0 rounded-lg w-full bg-white">
+                            <div class="title-section p-5 flex justify-between capitalize h-16 items-center">
+                                Ustensiles
+                                <img src="../assets/icons/chevronup.svg" alt="" id="masque3">
+                            </div>
+                            <div class="content-section px-6">
+                                <div class="recherche flex w-full relative">
+                                    <input class="option-search w-full h-9 pr-6 border border-gray-300 rounded-lg box-border" type="search" name="search" placeholder="">
+                                    <span class="button_search absolute right-2 transform -translate-y-1/2 border-none bg-none p-0">
+                                        <img src="../assets/icons/loupei.svg" alt="Rechercher" class="w-3.5 h-3.5">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ustensils px-6 py-3 cursor-pointer"></div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div id="tags-container" class="tags-container mt-4 flex"></div>
+        </div>
+        <div id="recipes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
+
+        </div>
+    </main>
+    <footer></footer>
+    <script src="./data/recipes.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/templates/create-card.js"></script>
+    <script type="module" src="./scripts/templates/create-tag.js"></script>
+    <script type="module" src="./scripts/templates/dropdowns.js"></script>
+    <script type="module" src="./scripts/utils/all-recipes.js"></script>
+    <script type="module" src="./scripts/algoritms/algorithme-n.js"></script>
+    <!-- <script type="module" src="./scripts/algoritms/algorithme-pf.js"></script> -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

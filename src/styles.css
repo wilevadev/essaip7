@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: #ededed;
+}
+
+.chevron {
+    transition: transform 0.3s ease;
+}
+
+.dropDown[open] .chevron {
+    transform: rotate(180deg);
+}
+
+.recipe-time {
+    border-radius: 14px;
+}
+
+h3 {
+    color: #7A7A7A;
+}
+
+/* Réglage du dropDown ouvert */
+.dropDown > .options {
+    height: fit-content;
+    box-shadow: 0px 4px 34px 30px #0000000A;
+}
+
+.dropDown > .options > .title-section {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    height: 64px;
+    align-items: center;
+}
+
+.dropDown > .options > .content-section {
+    padding: 0 24px 0 24px;
+}
+
+.dropDown > .options > .content-section > * {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    max-height: 500px;
+    overflow: auto;
+}
+
+#recipe-ingredients {
+    list-style-type: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-top: 10px;
+}
+
+#recipe-ingredients li {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 4px;
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px; /* Utilisation de la valeur la plus petite trouvée */
+    height: 732px;
+}
+
+.card-header {
+    position: relative;
+}
+
+#recipe-image {
+    width: 100%;
+    height: 16rem;
+    object-fit:contain;
+}
+
+#recipe-time {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background-color: #ffd15b; /* Couleur personnalisée */
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 14px;
+}
+
+.card-body {
+    padding: 16px;
+}
+
+#recipe-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 16px;
+    text-align: left;
+}
+
+.card-body h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 16px;
+}
+
+#recipe-description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    max-height: 76px;
+    overflow-y: auto;
+    padding-top: 16px;
+}
+
+.hover-loupe:hover {
+    content: url('../assets/icons/loupeJaune.svg');
+}
+
+.option {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.option:hover {
+    background-color: #ffd15b;
+}
+
+.form {
+    position: relative;
+    width: 80%;
+    display: flex;
+}
+
+.custom-input {
+    font-size: 1rem; /* Taille de police par défaut */
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+#main-btn {
+    position: absolute;
+    right: 10px;
+    width: 50px; /* Taille par défaut */
+    height: 50px; /* Taille par défaut */
+}
+
+.btnPrincipale {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    #main-btn {
+        width: 30px; /* Taille réduite pour les petits écrans */
+        height: 30px; /* Taille réduite pour les petits écrans */
+    }
+
+    .dropDown {
+        width: 100%; /* Réduction de la largeur des dropdowns */
+    }
+
+    .tags-container {
+        flex-direction: column;
+        gap: 20px; /* Ajustement de l'espacement */
+    }
+}
+
+#error-message {
+    padding-left: 10px;
+}
+
+.tag {
+    display: flex;
+    justify-content: space-between;
+    width: 203px;
+    height: 53px;
+    align-items: center;
+    border-radius: 10px;
+    background: #FFD15B;
+    padding-left: 20px;
+    padding-right: 15px;
+}
+
+.tags-container {
+    gap: 60px;
+}
+
+.button_search {
+    top: 44%;
+}
+
+.ingredients,
+.appliances,
+.ustensils {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.error-message {
+    color: #ffd15b;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredient-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.quantity-unit {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    color: #7A7A7A;
+}
+
+  
